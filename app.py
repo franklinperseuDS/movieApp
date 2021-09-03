@@ -44,9 +44,14 @@ if btn_predict:
 
         result = response.read()
         print(result)
-    except urllib.error.HTTPError as error:
-        print("The request failed with status code: " + str(error.code))
+        parsed_json = (json.loads(result))
+        y = json.loads(json.dumps(parsed_json, indent=4, sort_keys=True))
+        x = y['Results']
+        z = x['output1']
+        m = z[0]
+    # except urllib.error.HTTPError as error:
+    #     print("The request failed with status code: " + str(error.code))
 
-        # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
-        print(error.info())
-        print(json.loads(error.read().decode("utf8", 'ignore')))
+    #     # Print the headers - they include the requert ID and the timestamp, which are useful for debugging the failure
+    #     print(error.info())
+    #     print(json.loads(error.read().decode("utf8", 'ignore')))
