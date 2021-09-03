@@ -1,6 +1,7 @@
+import streamlit as st
 import urllib.request
 import json
-import streamlit as st
+
 
 st.title("Web Data Reccomendation Movies") 
 
@@ -27,9 +28,9 @@ if btn_predict:
                         }
                     ],
             },
-        "GlobalParameters":  {
-        }
+    "GlobalParameters":  {
     }
+}
 
     body = str.encode(json.dumps(data))
 
