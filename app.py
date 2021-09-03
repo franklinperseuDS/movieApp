@@ -39,16 +39,16 @@ if btn_predict:
 
     req = urllib.request.Request(url, body, headers)
 
-    try:
-        response = urllib.request.urlopen(req)
+    # try:
+    response = urllib.request.urlopen(req)
 
-        result = response.read()
-        print(result)
-        parsed_json = (json.loads(result))
-        y = json.loads(json.dumps(parsed_json, indent=4, sort_keys=True))
-        x = y['Results']
-        z = x['output1']
-        m = z[0]
+    result = response.read()
+    print(result)
+    parsed_json = (json.loads(result))
+    y = json.loads(json.dumps(parsed_json, indent=4, sort_keys=True))
+    x = y['Results']
+    z = x['output1']
+    m = z[0]
     # except urllib.error.HTTPError as error:
     #     print("The request failed with status code: " + str(error.code))
 
