@@ -49,7 +49,7 @@ if btn_predict:
         x = y['Results']
         z = x['output1']
         m = z[0]
-        print(m['Item'])
+        st.markdown(m['Item'])
              
         # if m['Scored Labels'] == '1':
         #     st.markdown("Previsão de Risco = Baixo Risco")
