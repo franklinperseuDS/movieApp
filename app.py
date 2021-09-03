@@ -1,21 +1,35 @@
 import urllib.request
 import json
+import streamlit as st
 
-data = {
-        "Inputs": {
-                "input1":
-                [
-                    {
-                            'UserId': "1",   
-                            'MovieId': "68646",   
-                            'Rating': "3",   
-                            'Timestamp': "1381620027",   
-                    }
-                ],
-        },
-    "GlobalParameters":  {
+st.title("Web Data Reccomendation Movies") 
+
+
+UserId = st.text_input("User Id", key="UserId", value="1")
+MovieId = st.text_input("Movie Id", key="MovieId", value="68646")
+Rating = st.text_input("Rating ", key="Rating", value="0")
+Timestamp = st.text_input("Time stamp", key="Timestamp", value="1381620027")
+
+# inserindo um botão na tela
+btn_predict = st.button("Realizar Previsão")
+
+
+if btn_predict:
+    data = {
+            "Inputs": {
+                    "input1":
+                    [
+                        {
+                                'UserId': UserId,   
+                                'MovieId': MovieId,   
+                                'Rating': Rating,   
+                                'Timestamp': Timestamp,   
+                        }
+                    ],
+            },
+        "GlobalParameters":  {
+        }
     }
-}
 
 body = str.encode(json.dumps(data))
 
